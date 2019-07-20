@@ -1,0 +1,35 @@
+{
+  "name": "webpackvue",
+  "version": "1.0.0",
+  "description": "基于webpack的vue脚手架",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhenyulei/webpackVue.git"
+  },
+  "author": "zhenyulei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhenyulei/webpackVue/issues"
+  },
+  "homepage": "https://github.com/zhenyulei/webpackVue#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "css-loader": "^3.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-loader": "^0.6.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}
