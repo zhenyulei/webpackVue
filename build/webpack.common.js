@@ -42,8 +42,8 @@ module.exports = {
       },
       {
         test:/\.js$/,
-        exclude:__dirname+'node_modules',
-        include:__dirname+'src',
+        exclude:/node_modules/,
+        include:/src/,
         use:'babel-loader'
       },
       {

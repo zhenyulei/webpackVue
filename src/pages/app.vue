@@ -23,11 +23,12 @@ export default {
   },
   methods:{
     init(){
-      let a = [1,2,3,4].includes(3);
-      console.log(a);
+      
       console.log('hello');
       //console.log('222');
-    }
+
+    },
+    
   }
 }
 </script>

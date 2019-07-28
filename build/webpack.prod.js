@@ -35,8 +35,8 @@ const proConfig = {
   },
   optimization:{
     minimizer:[
-      new TerserPlugin(),
-      new OptimizeCSSAssetsPlugin({})
+      new TerserPlugin(),//删除后发现文件变大，确实进行了压缩
+      new OptimizeCSSAssetsPlugin({}),
     ],
     splitChunks: {
       chunks: 'all',//同步异步全都打包
@@ -58,7 +58,8 @@ const proConfig = {
           filename: 'common.js'
         }
       }
-    }
+    },
+    runtimeChunk: true,
   },
   plugins:[
     //new BundleAnalyzerPlugin(),
