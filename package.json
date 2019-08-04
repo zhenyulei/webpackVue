@@ -1,0 +1,47 @@
+{
+  "name": "scaffolding",
+  "version": "1.0.0",
+  "description": "基于webpack+vue的脚手架",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config ./build/webpack.dev.js",
+    "build": "webpack --config ./build/webpack.prod.js --progress",
+    "dll": "webpack --config ./build/webpack.dll.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhenyulei/webpackVue.git"
+  },
+  "author": "zhenyulei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhenyulei/webpackVue/issues"
+  },
+  "homepage": "https://github.com/zhenyulei/webpackVue#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "core-js": "^2.6.9",
+    "css-loader": "^3.1.0",
+    "file-loader": "^4.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^2.1.0",
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "vue": "^2.6.10",
+    "vue-cli": "^2.9.6"
+  }
+}
