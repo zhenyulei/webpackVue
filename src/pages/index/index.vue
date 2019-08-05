@@ -1,16 +1,27 @@
 <template>
     <div class="wrapper">
-        <img src="../assest/imgs/logo.png" alt="" class="img-box">
-        <div class="box">我的名字是{{name}}</div>
+        <img src="@/assest/imgs/logo.png" alt="" class="img-box">
+        <div class="box">我的名字是:
+            <input type="text" v-model="name">
+        </div>
         <div class="logo"></div>
+        <Chinese/>
+        <Button @click-btn="clickBtn" btnWord="到下一页"/>
     </div>
 </template>
 <script>
+import Chinese from '@/component/chinese.vue';
+import Button from '@/component/button.vue';
+
 export default {
     data(){
         return {
             name:'xiaohua'
         }
+    },
+    components:{
+        Chinese,
+        Button
     },
     mounted(){
         this.init()
@@ -33,6 +44,9 @@ export default {
                     resolve('nihao');
                 },1000)
             })
+        },
+        clickBtn(){
+            this.$router.push('/my');
         }
     }
 }
@@ -40,9 +54,9 @@ export default {
 <style lang="scss">
 .wrapper{
     .box{
-        width: 200px;
+        width: 500px;
         height: 200px;
-        background: yellow;
+        background: green;
         display:flex;
         align-items: center;
         justify-content: center;
@@ -57,7 +71,7 @@ export default {
         width: 100px;
         height: 50px;
         border:1px solid yellowgreen;
-        background: url('../assest/imgs/logo.png');
+        background: url('~@/assest/imgs/logo.png');
         background-size:100% 100%;
     }
 }
