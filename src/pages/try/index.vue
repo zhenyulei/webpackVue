@@ -2,7 +2,6 @@
     <div class="wrapper">
         <p>{{pageInfo}}</p>
         <Chinese/>
-        <div class="box"></div>
         <Button @click-btn="clickBtn" btnWord="返回上一页"/>
     </div>
 </template>
@@ -13,7 +12,7 @@ import Button from '@/component/button.vue';
 export default {
     data(){
         return {
-            pageInfo:'我是第二页内容!'
+            pageInfo:'我是第三页内容!'
         }
     },
     components:{
@@ -24,7 +23,7 @@ export default {
     },
     methods:{
         clickBtn(){
-            this.$router.push('/');
+            this.$router.push('/my');
         }
     }
 }

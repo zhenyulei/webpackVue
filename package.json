@@ -4,8 +4,8 @@
   "description": "基于webpack+vue的脚手架",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=devlopment webpack-dev-server --config  ./build/webpack.dev.js --hide-modules --progress",
-    "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.js --hide-modules --progress",
+    "dev": "webpack-dev-server --config  ./build/webpack.dev.js --hide-modules --progress",
+    "build": "webpack --config ./build/webpack.prod.js --hide-modules --progress",
     "dll": "webpack --config ./build/webpack.dll.js --hide-modules --progress",
     "analyz": "cross-env npm_config_report=true npm run build"
   },
@@ -45,6 +45,7 @@
     "terser-webpack-plugin": "1.4.1",
     "url-loader": "2.1.0",
     "vue-loader": "15.7.1",
+    "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "2.6.10",
     "webpack": "4.39.1",
     "webpack-bundle-analyzer": "3.4.1",

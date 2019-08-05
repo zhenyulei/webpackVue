@@ -3,16 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); 
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
     entry:{
         index:path.resolve(__dirname,'../src/app.js')
     },
     output:{
-        filename:'[name].[chunkhash].js',
-        path:path.join(__dirname,'../dist','/js')
+        filename:'js/[name].[hash].js',
+        path:path.resolve(__dirname,'../dist'),
     },
     resolve:{
         extensions:['.js','.vue','.json'],
@@ -22,28 +20,6 @@ module.exports = {
     },
     module:{
         rules:[
-            {
-                test:/\.css$/,
-                use:[
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'postcss-loader',
-                ],
-            },
-            {
-                test:/\.scss$/,
-                use:[
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader:'css-loader',
-                        options:{
-                            importLoaders:2
-                        }
-                    },
-                    'postcss-loader',
-                    'sass-loader'
-                ]
-            },
             {
                 test:/\.vue$/,
                 use:'vue-loader?cacheDirectory=true',
@@ -56,8 +32,8 @@ module.exports = {
                     {
                         loader:'url-loader?cacheDirectory=true',
                         options:{
-                            name:'./img/[name].[ext]',
-                            limit:10240
+                            name:'img/[name].[ext]',
+                            limit:1024
                         }
                     }
                 ],
@@ -85,14 +61,14 @@ module.exports = {
                 vendors: {
                     test: /[\\/]node_modules[\\/]/, //如果上面chunks定为all，就是找到所有的import文件，看他是不是调用于 node_modules 文件夹 是的话就拆分
                     priority: -10,//优先级 比如同时符合vender 和 default 这个优先级高 所以存在这里
-                    filename: 'vendors.js', //拆分后打包的文件名字
+                    filename: 'js/vendors.js', //拆分后打包的文件名字
                 },
                 default: {//像文件中 import进来的文件 如果不在 node_modules文件夹中 则走默认组，打包出的文件名字是 common.js
                     minSize:20,
                     priority: -20,
                     minChunks: 2,
                     reuseExistingChunk: true,//比如a.js 引用了 b.js；如果b.js在之前已经被拆分过，则这里不再对其进行拆分
-                    filename: 'common.js'
+                    filename: 'js/common.js'
                 }
             }
         }
@@ -106,10 +82,6 @@ module.exports = {
         new DllReferencePlugin({
             context:__dirname,
             manifest:require('../static/libVendor.mainfest.json')
-        }),
-        new MiniCssExtractPlugin({
-            filename: devMode ? '[name].css' : '../css/[name].[contenthash].css',
-            chunkFilename: devMode ? '[name].css' : '../css/[name].[contenthash].css',
         })
     ]
 }
