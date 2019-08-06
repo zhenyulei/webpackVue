@@ -1,7 +1,7 @@
 const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); 
 const DllPlugin = require('webpack/lib/DllPlugin');
-const vendorTarget = ['vue','vue-router'];
+const vendorTarget = ['vue','vue-router','vuex','axios','qs'];
 module.exports = {
     mode:'production',
     entry:{

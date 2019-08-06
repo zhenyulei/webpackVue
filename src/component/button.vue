@@ -90,6 +90,7 @@ export default {
     line-height: 50px;
     text-align: center;
     cursor: pointer;
+    margin-bottom: 20px;
 }
     
 </style>

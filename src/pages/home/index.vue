@@ -4,19 +4,24 @@
         <div class="box">我的名字是:
             <input type="text" v-model="name">
         </div>
+        <div class="box">vuex的data:{{homeVuex}}
+        </div>
         <div class="logo"></div>
         <Chinese/>
+        <Button @click-btn="changeMyHome('new vuex')" btnWord="change-vuex"/>
+        <Button @click-btn="reqPost" btnWord="post请求"/>
         <Button @click-btn="clickBtn" btnWord="到下一页"/>
     </div>
 </template>
 <script>
 import Chinese from '@/component/chinese.vue';
 import Button from '@/component/button.vue';
-
+import {mapState,mapActions} from 'vuex'
+import { getData,getPostData } from '@/api';
 export default {
     data(){
         return {
-            name:'xiaohua'
+            name:'xiaohua',
         }
     },
     components:{
@@ -25,6 +30,11 @@ export default {
     },
     mounted(){
         this.init()
+    },
+    computed: {
+        ...mapState({
+            "homeVuex":state => state.home.myhome,
+        })
     },
     methods:{
         async init(){
@@ -35,19 +45,17 @@ export default {
             console.log(res);
             let newArr = [...arr];
             console.log(newArr);
-            let callback = await this.yibu();
-            console.log(callback);
+            let {rs} = await getData({name:'xiaohua'});
+            console.log(rs.floorInfo.id);
         },
-        yibu(){
-            return new Promise((resolve,reject)=>{
-                setTimeout(()=>{
-                    resolve('nihao');
-                },1000)
-            })
+        async reqPost(){
+            let {rs} = await getPostData({name:'xiaohua'});
+            console.log(rs.floorInfo);
         },
         clickBtn(){
             this.$router.push('/my');
-        }
+        },
+        ...mapActions('home',['changeMyHome']),
     }
 }
 </script>
