@@ -1,15 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Index from './pages/index';
-//import My from './pages/my';
+const Home = ()=> import (/* webpackPrefetch: true */ /* webpackChunkName: 'home' */ './pages/index');
 const My = ()=> import (/* webpackPrefetch: true */ /* webpackChunkName: 'my' */ './pages/my');
 const Try = ()=> import (/* webpackPrefetch: true */ /* webpackChunkName: 'try' */ './pages/try');
 
 Vue.use(VueRouter);
 
 const routes = [
-    {path:"/",component:Index},
+    {path:"/",component:Home},
     {path:"/my",component:My},
     {path:"/try",component:Try}
 
