@@ -1,2 +1,2 @@
 # webpackVue
-基于webpack4的vue脚手架
+基于webpack4的react脚手架
