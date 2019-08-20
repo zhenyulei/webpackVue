@@ -1,6 +1,5 @@
 const path  = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); 
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
 
@@ -13,7 +12,7 @@ module.exports = {
         path:path.resolve(__dirname,'../dist'),
     },
     resolve:{
-        extensions:['.js','.vue','.json'],
+        extensions:['.js','.jsx','.json'],
         alias:{
             "@":path.resolve('src')
         }
@@ -24,12 +23,6 @@ module.exports = {
     },
     module:{
         rules:[
-            {
-                test:/\.vue$/,
-                use:'vue-loader?cacheDirectory=true',
-                include:path.resolve(__dirname,'../src'),
-                exclude:/node_modules/
-            },
             {
                 test:/\.(png|gif|jpeg|jpg)$/,
                 use:[
@@ -45,7 +38,7 @@ module.exports = {
                 exclude:/node_modules/
             },
             {
-                test:/\.js$/,
+                test:/\.(js|jsx)$/,
                 use:'babel-loader?cacheDirectory=true',
                 exclude:/node_modules/,
                 include:path.resolve(__dirname,'../src'),
@@ -79,7 +72,6 @@ module.exports = {
     },
     plugins:[
         new CleanWebpackPlugin(),
-        new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template:path.resolve(__dirname,'../src/index.html')
         }),

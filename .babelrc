@@ -6,7 +6,9 @@
       "targets":{
           "browsers":[">1%","last 2 version","not ie <= 8"]
         }
-      }]
+      }],
+      "@babel/preset-react"
     ],
+    
     "plugins": ["@babel/plugin-syntax-dynamic-import"]
   }
