@@ -2,9 +2,36 @@
     width: 200px;
     height: 100px;
     border:1px solid red;
+    background: red;
+    color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.data-box{
+    width: 200px;
+    height: 100px;
+    border:1px solid red;
     background: green;
     color:#fff;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.change-box{
+    width: 200px;
+    height: 100px;
+    border:1px solid red;
+    background: red;
+    color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#box{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    border:1px solid #999;
 }

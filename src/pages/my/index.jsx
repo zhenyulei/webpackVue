@@ -1,29 +1,23 @@
-// Greeter.js
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom';
-// import {getData} from '../api/index.js'
-// import '../../css/sendIndex.scss'
+import { withRouter, Link } from "react-router-dom";
 
-class My extends Component{
-  constructor(props) {
-    super(props);
+class My extends React.Component {
+  constructor(props,context) {
+    super(props,context);
     this.state = {
       myname:'第二页'
     };
   }
-
-
   componentDidMount(){
-  	// getData().then((data)=>{
-  	// 	console.log(data);
-  	// });
   }
-
+  callbackPage(){
+    this.props.history.push('/');
+  }
   render() {
     return (
       <div>
        <h2>你好 {this.state.myname}</h2>
-       <Link to="/">点击我进行路由跳转</Link>
+       <div onClick={()=>{this.callbackPage()}}>点击我进行路由跳转</div>
       </div>
     );
   }
